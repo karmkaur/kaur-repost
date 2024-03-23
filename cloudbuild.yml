@@ -1,0 +1,11 @@
+steps:
+  # Step 1: Pull the latest Docker image from GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['pull', 'gcr.io/$karm-devops/gcr.io/karm-devops/flask-app:v1:latest']
+
+  # Step 2: Add additional steps if needed, e.g., running tests
+
+  # Step 3: Deploy to Compute Engine instance (This is a simplified placeholder step)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['compute', 'instances', 'update-container', 'kaur-instance','--zone', 'us-central1',
+'--container-image', 'gcr.io/$karm-devops/gcr.io/karm-devops/flask-app:v1:latest']
